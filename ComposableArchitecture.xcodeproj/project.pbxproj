@@ -13,6 +13,8 @@
 		40C7E10F25E0405B005C0614 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E10E25E0405B005C0614 /* Preview Assets.xcassets */; };
 		40C7E11A25E0405C005C0614 /* ComposableArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E11925E0405C005C0614 /* ComposableArchitectureTests.swift */; };
 		40C7E12525E0405C005C0614 /* ComposableArchitectureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E12425E0405C005C0614 /* ComposableArchitectureUITests.swift */; };
+		40DE6FFB25E3FD8C00B4FED2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DE6FFA25E3FD8C00B4FED2 /* Model.swift */; };
+		40DE700025E3FF5A00B4FED2 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DE6FFF25E3FF5A00B4FED2 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		40C7E12025E0405C005C0614 /* ComposableArchitectureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComposableArchitectureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C7E12425E0405C005C0614 /* ComposableArchitectureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableArchitectureUITests.swift; sourceTree = "<group>"; };
 		40C7E12625E0405C005C0614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40DE6FFA25E3FD8C00B4FED2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		40DE6FFF25E3FF5A00B4FED2 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 				40C7E10B25E0405B005C0614 /* Assets.xcassets */,
 				40C7E11025E0405B005C0614 /* Info.plist */,
 				40C7E10D25E0405B005C0614 /* Preview Content */,
+				40DE6FFA25E3FD8C00B4FED2 /* Model.swift */,
+				40DE6FFF25E3FF5A00B4FED2 /* Keys.swift */,
 			);
 			path = ComposableArchitecture;
 			sourceTree = "<group>";
@@ -259,6 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40DE6FFB25E3FD8C00B4FED2 /* Model.swift in Sources */,
+				40DE700025E3FF5A00B4FED2 /* Keys.swift in Sources */,
 				40C7E10A25E0405A005C0614 /* ContentView.swift in Sources */,
 				40C7E10825E0405A005C0614 /* ComposableArchitectureApp.swift in Sources */,
 			);
