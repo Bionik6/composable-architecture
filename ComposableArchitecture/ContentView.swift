@@ -8,10 +8,52 @@
 import SwiftUI
 import Combine
 
+
 class AppState: ObservableObject {
   @Published var count = 0
+  @Published var loggedUser: User?
   @Published var favoritePrimes: [Int] = []
+  @Published var activityFeed: [Activity] = []
+  
+  struct Activity {
+    let timestamp: Date
+    let type: ActivityType
+    
+    enum ActivityType {
+      case addedFavoritePrime(Int)
+      case removedFavoritePrime(Int)
+    }
+  }
+  
+  struct User {
+    let id: Int
+    let name: String
+    let bio: String
+  }
+  
 }
+
+extension AppState {
+  func addFavoritePrime() {
+    favoritePrimes.append(count)
+    activityFeed.append(.init(timestamp: Date(), type: .addedFavoritePrime(count)))
+  }
+  
+  func removeFavoritePrime(_ prime: Int) {
+    favoritePrimes.removeAll(where: { $0 == prime })
+    activityFeed.append(.init(timestamp: Date(), type: .removedFavoritePrime(prime)))
+  }
+  
+  func removeFavoritePrime() {
+    removeFavoritePrime(count)
+  }
+  
+  func removeFavoritePrimes(at indexSet: IndexSet) {
+    for index in indexSet { removeFavoritePrime(favoritePrimes[index]) }
+  }
+}
+
+
 
 struct ContentView: View {
   @ObservedObject var state: AppState
@@ -31,17 +73,13 @@ struct ContentView: View {
 }
 
 
-private func ordinal(_ n: Int) -> String {
-  let formatter = NumberFormatter()
-  formatter.numberStyle = .ordinal
-  return formatter.string(for: n) ?? ""
-}
 
 struct CounterView: View {
   
   @State var alertNthPrime: Int?
   @ObservedObject var state: AppState
   @State var isPrimeModalShown: Bool = false
+  @State var isNthPrimeButtonDisabled = false
   
   var body: some View {
     VStack {
@@ -57,13 +95,9 @@ struct CounterView: View {
       Button(action: { isPrimeModalShown.toggle() }, label: {
         Text("Is this prime?")
       })
-      Button(action: {
-        nthPrime(state.count) { prime in
-          alertNthPrime = prime
-        }
-      }, label: {
+      Button(action: nthPrimeButtonAction) {
         Text("What is the \(ordinal(state.count)) prime?")
-      })
+      }.disabled(isNthPrimeButtonDisabled)
     }
     .font(.title)
     .navigationTitle("Counter Demo")
@@ -75,23 +109,17 @@ struct CounterView: View {
     }
     
   }
-}
-
-extension Int: Identifiable {
-  public var id: String {
-    return "\(self)"
-  }
   
+  func nthPrimeButtonAction() {
+    isNthPrimeButtonDisabled = true
+    nthPrime(state.count) { prime in
+      alertNthPrime = prime
+      isNthPrimeButtonDisabled = false
+    }
+  }
 }
 
-private func isPrime(_ p: Int) -> Bool {
-  if p <= 1 { return false }
-  if p <= 3 { return true }
-  for i in 2...Int(sqrtf(Float(p))) {
-    if p % i == 0 { return false }
-  }
-  return true
-}
+
 
 struct IsPrimeModalView: View {
   
@@ -100,13 +128,19 @@ struct IsPrimeModalView: View {
   var body: some View {
     VStack {
       if isPrime(state.count) {
-          Text("\(state.count) is prime 🎉🎊")
+        Text("\(state.count) is prime 🎉🎊")
         if(state.favoritePrimes.contains(state.count)) {
-          Button(action: { state.favoritePrimes.removeAll { $0 == state.count } }, label: { 
+          Button(action: {
+            state.favoritePrimes.removeAll { $0 == state.count }
+            state.activityFeed.append(.init(timestamp: Date(), type: .removedFavoritePrime(state.count)))
+          }, label: {
             Text("Remove from favorite primes")
           })
         } else {
-          Button(action: { state.favoritePrimes.append(state.count) }, label: {
+          Button(action: {
+            state.favoritePrimes.append(state.count)
+            state.activityFeed.append(.init(timestamp: Date(), type: .addedFavoritePrime(state.count)))
+          }, label: {
             Text("Add to favorite primes")
           })
         }
@@ -118,8 +152,9 @@ struct IsPrimeModalView: View {
 }
 
 
+
 struct FavoritePrimeView: View {
-  
+
   @ObservedObject var state: AppState
   
   var body: some View {
@@ -135,6 +170,8 @@ struct FavoritePrimeView: View {
   }
   
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40BA2F1B26128BEC00936FFE /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BA2F1A26128BEC00936FFE /* helpers.swift */; };
 		40C7E10825E0405A005C0614 /* ComposableArchitectureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E10725E0405A005C0614 /* ComposableArchitectureApp.swift */; };
 		40C7E10A25E0405A005C0614 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E10925E0405A005C0614 /* ContentView.swift */; };
 		40C7E10C25E0405B005C0614 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E10B25E0405B005C0614 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40BA2F1A26128BEC00936FFE /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		40C7E10425E0405A005C0614 /* ComposableArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComposableArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C7E10725E0405A005C0614 /* ComposableArchitectureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableArchitectureApp.swift; sourceTree = "<group>"; };
 		40C7E10925E0405A005C0614 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				40C7E10D25E0405B005C0614 /* Preview Content */,
 				40DE6FFA25E3FD8C00B4FED2 /* Model.swift */,
 				40DE6FFF25E3FF5A00B4FED2 /* Keys.swift */,
+				40BA2F1A26128BEC00936FFE /* helpers.swift */,
 			);
 			path = ComposableArchitecture;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				40DE700025E3FF5A00B4FED2 /* Keys.swift in Sources */,
 				40C7E10A25E0405A005C0614 /* ContentView.swift in Sources */,
 				40C7E10825E0405A005C0614 /* ComposableArchitectureApp.swift in Sources */,
+				40BA2F1B26128BEC00936FFE /* helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
