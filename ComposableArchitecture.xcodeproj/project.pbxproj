@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4030A9BE263AD2E0004CFC4A /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4030A9BD263AD2E0004CFC4A /* AppState.swift */; };
 		40BA2F1B26128BEC00936FFE /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BA2F1A26128BEC00936FFE /* helpers.swift */; };
 		40C7E10825E0405A005C0614 /* ComposableArchitectureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E10725E0405A005C0614 /* ComposableArchitectureApp.swift */; };
 		40C7E10A25E0405A005C0614 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E10925E0405A005C0614 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4030A9BD263AD2E0004CFC4A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		40BA2F1A26128BEC00936FFE /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		40C7E10425E0405A005C0614 /* ComposableArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComposableArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C7E10725E0405A005C0614 /* ComposableArchitectureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableArchitectureApp.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		40C7E10625E0405A005C0614 /* ComposableArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				4030A9BD263AD2E0004CFC4A /* AppState.swift */,
 				40C7E10725E0405A005C0614 /* ComposableArchitectureApp.swift */,
 				40C7E10925E0405A005C0614 /* ContentView.swift */,
 				40C7E10B25E0405B005C0614 /* Assets.xcassets */,
@@ -271,6 +274,7 @@
 				40DE6FFB25E3FD8C00B4FED2 /* Model.swift in Sources */,
 				40DE700025E3FF5A00B4FED2 /* Keys.swift in Sources */,
 				40C7E10A25E0405A005C0614 /* ContentView.swift in Sources */,
+				4030A9BE263AD2E0004CFC4A /* AppState.swift in Sources */,
 				40C7E10825E0405A005C0614 /* ComposableArchitectureApp.swift in Sources */,
 				40BA2F1B26128BEC00936FFE /* helpers.swift in Sources */,
 			);
